@@ -12,11 +12,24 @@ const Intercom = () => {
 		const num = e.target.textContent;
 		dispatch({type: 'ADD_NUM', num});
 		dispatch({type: 'DISABLE'})
+
+		const star = '*';
+		dispatch({type: 'PRINT_STAR', star})
+	}
+
+	const verify = () => {
+		dispatch({type: 'VERIFICATION'});
+	}
+
+	const deleteNum = () => {
+		dispatch({type: 'DELETE'});
+
+		dispatch({type: 'DELETE_STAR'})
 	}
 
 	return (
 		<div className="Intercom">
-			<div className={`Intercom-code ${intercom.access ? ' Granted' : ' Denied'}`}>{intercom.password}</div>
+			<div className={`Intercom-code ${!intercom.access?  ' Granted' :  ' Denied'}`}>{intercom.star}</div>
 			<div className="Intercom-row">
 				{arrayButtons.map((item, index) => (
 						<button key={index}
@@ -25,12 +38,12 @@ const Intercom = () => {
 										onClick={addNum}
 						>{item}</button>
 					))}
-					<button className="Intercom-item" onClick={() => dispatch({type: 'DELETE'})}>&#60;</button>
+					<button className="Intercom-item" onClick={deleteNum}>&#60;</button>
 					<button disabled={intercom.isDisabled}
 									className="Intercom-item"
 									onClick={addNum}
 					>0</button>
-					<button className="Intercom-item" onClick={() => dispatch({type: 'CHECK'})}>E</button>
+					<button className="Intercom-item" onClick={verify}>E</button>
 			</div>
 		</div>
 	);

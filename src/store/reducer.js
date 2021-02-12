@@ -2,7 +2,8 @@ const initialState = {
 	secretCode: '1234',
 	password: '',
 	access: false,
-	isDisabled: false
+	isDisabled: false,
+	star: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,10 +17,16 @@ const reducer = (state = initialState, action) => {
 				return {...state, isDisabled: true}
 			}
 			return state
-		case 'CHECK':
+		case 'VERIFICATION':
 			if(state.password === state.secretCode) {
 				return {...state, access: true}
+			} else {
+				return {...state, access: false}
 			}
+		case 'PRINT_STAR':
+			return {...state, star: state.star += action.star}
+		case 'DELETE_STAR':
+			return {...state, star: state.star.slice(0, -1)}
 		default:
 			return state
 	}
