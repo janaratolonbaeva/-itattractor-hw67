@@ -1,0 +1,40 @@
+.Intercom {
+    width: 200px;
+    margin: 50px auto;
+}
+.Intercom-code {
+    line-height: 60px;
+    font-size: 50px;
+    text-align: right;
+    width: 200px;
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: none;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    height: 60px;
+}
+.Intercom-code.Granted {
+    border: 1px solid red;
+}
+.Intercom-code.Denied {
+    border: 1px solid green;
+}
+.Intercom-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.Intercom-item {
+    width: 60px;
+    height: 30px;
+    background: rgb(222,222,222);
+    background: linear-gradient(0deg, rgba(222,222,222,1) 50%, rgba(246,246,246,1) 100%);
+    text-align: center;
+    line-height: 28px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+}
