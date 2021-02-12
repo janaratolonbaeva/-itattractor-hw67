@@ -15,6 +15,8 @@ const reducer = (state = initialState, action) => {
 		case 'DISABLE':
 			if(state.password.length === 4) {
 				return {...state, isDisabled: true}
+			} else {
+				return {...state, isDisabled: false}
 			}
 			return state
 		case 'VERIFICATION':
